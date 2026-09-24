@@ -33,9 +33,10 @@ function parseVisibleRows() {
 		let lname = r.querySelector('td:nth-of-type(6)').innerText;
 		let fname = r.querySelector('td:nth-of-type(7)').innerText;
 		let login = r.querySelector('td:nth-of-type(3)').innerText;
+		let datetime = login.replace(' at ',' '); // makes it Google Sheet friendly
 
 		if(role.trim() == '') {
-			accounts.push('"' + [id, lname, fname, login].join('","') + '"');
+			accounts.push('"' + [id, lname, fname, datetime].join('","') + '"');
 		} 
 	}
 	console.log(`Scanned page ${page}... ${accounts.length} roleless account(s) found so far.`);
